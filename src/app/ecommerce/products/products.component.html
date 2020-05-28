@@ -4,10 +4,21 @@
             <div class="card-header">
                 <h4>{{order.product.name}}</h4>
             </div>
-            <div class="card-body">
-                <a href="#"><img class="card-img-top" height="200px" src={{order.product.pictureUrl}} 
+            <div class="card-body" >
+                <a href="#"><img class="card-img-top" height="250px"  src={{order.product.pictureUrl}} 
                     alt=""></a>
                 <h5 class="card-title">${{order.product.price}}</h5>
+				<div class="row">
+                    <div class="col-5 padding-0" *ngIf="!isProductSelected(order.product)">
+                        <input type="number" min="0" class="form-control"
+                            [(ngModel)]=order.quantity>
+                    </div>
+                    <div class="col-30 padding-2" *ngIf="!isProductSelected(order.product)">
+                        <button class="btn btn-primary" (click)="addToCart(order)"
+                                [disabled]="order.quantity <= 0">Add To Cart
+                        </button>
+                    </div>
+                   
             </div>
         </div>
     </div>
