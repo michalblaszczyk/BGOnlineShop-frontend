@@ -3,6 +3,8 @@ import {Subject} from "rxjs/internal/Subject";
 import {ProductOrders} from "../models/product-orders.model";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
+import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EcommerceService {
@@ -25,6 +27,10 @@ export class EcommerceService {
     constructor(private http: HttpClient) {
     }
 
+	public getProductsByName(name: String): Observable<any>{
+		return this.http.get(this.productsUrl+"/search/"+name);
+	}
+	
     getAllProducts() {
         return this.http.get(this.productsUrl);
     }

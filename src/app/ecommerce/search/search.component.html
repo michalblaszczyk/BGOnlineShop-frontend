@@ -1,0 +1,31 @@
+
+<h3>Search board games</h3>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="lastname">Games Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+    </div>
+ 
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<ul>
+  <li class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>{{product.name}}</h4>
+            </div>
+            <div class="card-body" >
+                <a href="#"><img class="card-img-top" height="450px"  src={{product.pictureUrl}} 
+                    alt=""></a>
+                <h5 class="card-title">${{product.price}}</h5>
+				<div class="row">
+                    
+                   
+            </div>
+        </div>
+    </div>
+</ul>
