@@ -18,6 +18,11 @@
                                 [disabled]="order.quantity <= 0">Add To Cart
                         </button>
                     </div>
+					 <div class="col-12" *ngIf="isProductSelected(order.product)">
+                        <button class="btn btn-primary btn-block"
+                                (click)="removeFromCart(order)">Remove From Cart
+                        </button>
+                    </div>
                    
             </div>
         </div>

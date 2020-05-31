@@ -10,10 +10,7 @@
         <div id="navbarResponsive"
             [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
             <ul class="navbar-nav ml-auto" routerLinkActive="active">
-			<li class="nav-item active">
-                    <a class="nav-link" href="/findByName">Search</a>		
-            </li>
-			
+				
             <li class="nav-item active">
                     <a class="nav-link" href="#" (click)="reset()">Home
                         <span class="sr-only">(current)</span>
@@ -25,12 +22,26 @@
             </li>
 				
             </ul>
+			<div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="name" required [(ngModel)]="name" name="name" aria-label="Search">
+			
+          </div>	
+		  <button class="btn btn-outline-primary btn-md my-2 my-sm-0 ml-3" type="submit" >Search</button>
         </div>
+	
     </div>
+
 </nav>
 <div class="row">
     <div class="col-md-9">
         <app-products #productsC [hidden]="orderFinished"></app-products>
+    </div>
+    <div class="col-md-3">
+        <app-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
+                           [hidden]="orderFinished"></app-shopping-cart>
+    </div>
+    <div class="col-md-6 offset-3">
+        <app-orders #ordersC [hidden]="!orderFinished"></app-orders>
     </div>
 </div>
 	

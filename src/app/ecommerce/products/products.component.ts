@@ -73,5 +73,16 @@ export class ProductsComponent implements OnInit {
 		this.productSelected = false;
     }
 	
+	removeFromCart(productOrder: ProductOrder) {
+        let index = this.getProductIndex(productOrder.product);
+        if (index > -1) {
+            this.shoppingCartOrders.productOrders.splice(
+                this.getProductIndex(productOrder.product), 1);
+        }
+        this.ecommerceService.ProductOrders = this.shoppingCartOrders;
+        this.shoppingCartOrders = this.ecommerceService.ProductOrders;
+        this.productSelected = false;
+    }
+	
 
 }

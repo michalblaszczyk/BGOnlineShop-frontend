@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ProductsComponent} from "./products/products.component";
 import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
 import {OrdersComponent} from "./orders/orders.component";
+import {SearchComponent} from "./search/search.component";
 import { ViewChild } from '@angular/core'
+import {Product} from './models/product.model';
+import {EcommerceService} from './services/EcommerceService';
 
 
 @Component({
@@ -23,10 +26,25 @@ export class EcommerceComponent implements OnInit {
 
     @ViewChild('ordersC')
     ordersC: OrdersComponent;
+	
+	@ViewChild('searchC')
+    searchC: SearchComponent;
+	
+	name: String;
+    products: Product[];
 
-  constructor() { }
+  constructor(private ecommerceService: EcommerceService) { }
+  
+  private searchGames(){
+	  this.ecommerceService.getProductsByName(this.name)
+		.subscribe(products => this.products = products);
+  }
+  onSubmit(){
+	  this.searchGames();
+  }
 
   ngOnInit(): void {
+	  this.name = "";
   }
   toggleCollapsed(): void {
         this.collapsed = !this.collapsed;
@@ -35,6 +53,9 @@ export class EcommerceComponent implements OnInit {
 	reset() {
         this.productsC.reset();
       
+    }
+	finishOrder(orderFinished: boolean) {
+        this.orderFinished = orderFinished;
     }
 
 }
