@@ -14,24 +14,38 @@
             <li class="nav-item active">
                     <a class="nav-link" href="#" (click)="reset()">Home
                         <span class="sr-only">(current)</span>
-
                     </a>
                 </li>
 				<li class="nav-item active">
                     <a class="nav-link" href="/logout">Logout</a>		
-            </li>
-				
+            </li>	
             </ul>
 			<div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="name" required [(ngModel)]="name" name="name" aria-label="Search">
-			
-          </div>	
-		  <button class="btn btn-outline-primary btn-md my-2 my-sm-0 ml-3" type="submit" >Search</button>
-        </div>
-	
+            <input class="form-control mr-sm-2" type="text"  placeholder="Search" id="name" required [(ngModel)]="name" name="name" aria-label="Search">
+          </div>
+       <form (ngSubmit)="onSubmit()" >		  
+		  <div class="btn-group"> 
+      <button type="submit" class="btn btn-success"  >Search</button>
     </div>
-
+	</form>
+        </div>
+		
+    </div>
 </nav>
+<div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>{{product.name}}</h4>
+            </div>
+			<div class="card-body" >
+                <a href="#"><img class="card-img-top" style="width: 18rem; height: 20rem;" src={{product.pictureUrl}} 
+                    alt=""></a>
+                <h5 class="card-title">${{product.price}}</h5>
+				<div class="row">
+            </div>
+        </div>
+			 </div>
+        </div>
 <div class="row">
     <div class="col-md-9">
         <app-products #productsC [hidden]="orderFinished"></app-products>
