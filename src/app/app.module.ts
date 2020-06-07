@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { LogoutComponent } from './logout/logout.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './ecommerce/search/search.component';
+import { UsersComponent } from './admin/users/users.component';
+import { AdduserComponent } from './admin/adduser/adduser.component';
+import { ViewuserComponent } from './admin/viewuser/viewuser.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { BgproductsComponent } from './admin/bgproducts/bgproducts.component';
+import { ViewproductComponent } from './admin/viewproduct/viewproduct.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +34,24 @@ import { SearchComponent } from './ecommerce/search/search.component';
     LoginComponent,
     LogoutComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    UsersComponent,
+    AdduserComponent,
+    ViewuserComponent,
+    AddproductComponent,
+    BgproductsComponent,
+    ViewproductComponent
   ],
   imports: [
     BrowserModule,
 	FormsModule,
 	HttpClientModule,
-	AppRoutingModule
+	AppRoutingModule,
+	
+	
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule { }

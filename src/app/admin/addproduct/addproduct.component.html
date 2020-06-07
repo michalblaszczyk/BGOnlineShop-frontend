@@ -1,0 +1,14 @@
+<h1>Add Product Admin</h1>
+
+<form>
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Product Name" [(ngModel)]="product.name" name="name">
+
+  <label for="author">Photo</label>
+  <input type="text" class="form-control" id="pictureUrl" placeholder="pictureUrl" name="pictureUrl" [(ngModel)]="product.pictureUrl">
+
+  <label for="author">Price</label>
+  <input type="text" class="form-control" id="price" placeholder="price" name="price" [(ngModel)]="product.price">
+
+  <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button>
+</form>

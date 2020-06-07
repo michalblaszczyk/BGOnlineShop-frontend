@@ -5,13 +5,16 @@ import { LogoutComponent } from './logout/logout.component';
 import { LoginComponent } from './login/login.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { SearchComponent } from './ecommerce/search/search.component';
-
+import { UsersComponent } from './admin/users/users.component';
+import { BgproductsComponent } from './admin/bgproducts/bgproducts.component';
 import { AuthGuardService } from './ecommerce/services/auth-guard.service';
 
 
 
 const routes: Routes = [
   { path: '', component: EcommerceComponent,canActivate:[AuthGuardService] },
+  { path: 'admin/products', component: BgproductsComponent },
+  { path: 'admin/users', component: UsersComponent},
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGuardService] },
   { path: 'findByName', component: SearchComponent,canActivate:[AuthGuardService] },

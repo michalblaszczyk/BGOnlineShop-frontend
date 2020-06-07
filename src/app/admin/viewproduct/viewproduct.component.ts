@@ -1,0 +1,34 @@
+import { Component, OnInit, Input,Output,EventEmitter  } from '@angular/core';
+import { Product } from '../../ecommerce/models/Product';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClientService } from '../../ecommerce/services/http-client.service';
+
+
+@Component({
+  selector: 'app-viewproduct',
+  templateUrl: './viewproduct.component.html',
+  styleUrls: ['./viewproduct.component.css']
+})
+export class ViewproductComponent implements OnInit {
+
+	@Input()
+    product: Product;
+	
+	@Output()
+    productDeletedEvent = new EventEmitter();
+
+	
+  constructor(private httpClientService: HttpClientService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
+  deleteProduct() {
+    this.httpClientService.deleteProduct(this.product.id).subscribe(
+      (product) => {
+		this.productDeletedEvent.emit();
+        this.router.navigate(['admin', 'products']);
+      }
+    );
+  }
+
+}
