@@ -22,6 +22,10 @@ import { ViewuserComponent } from './admin/viewuser/viewuser.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { BgproductsComponent } from './admin/bgproducts/bgproducts.component';
 import { ViewproductComponent } from './admin/viewproduct/viewproduct.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import { ViewproductComponent } from './admin/viewproduct/viewproduct.component'
     ViewuserComponent,
     AddproductComponent,
     BgproductsComponent,
-    ViewproductComponent
+    ViewproductComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import { ViewproductComponent } from './admin/viewproduct/viewproduct.component'
 	
 	
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
   exports: [],
 })

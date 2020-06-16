@@ -9,8 +9,9 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class HttpClientService {
-	private userUrl = '/api/users';
+	private userUrl = '/api/admin';
 	private productUrl = '/api/boardgames';
+	
 
   constructor(private httpClient:HttpClient)  { }
  

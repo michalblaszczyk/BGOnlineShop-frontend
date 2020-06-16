@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../ecommerce/services/AuthenticationService';
-import { Router } from '@angular/router';
+import {EcommerceService} from "../ecommerce/services/EcommerceService";
+import { TokenStorageService } from '../ecommerce/services/token-storage.service';
+
 
 @Component({
   selector: 'app-logout',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private authentocationService: AuthenticationService,
-    private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
-	this.authentocationService.logOut();
-    this.router.navigate(['login']);
+  }
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 
 }

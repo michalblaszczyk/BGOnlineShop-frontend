@@ -2,10 +2,10 @@
 <form #recievedUser="ngForm">
 
   <label for="name">Name</label>
-  <input type="text" class="form-control" id="name" placeholder="user name" [(ngModel)]="user.name" name="name">
+  <input type="text" class="form-control" id="name" placeholder="user name" [(ngModel)]="user.username" name="username">
 
   <label for="type">Type</label>
-  <input type="text" class="form-control" id="type" placeholder="type name" [(ngModel)]="user.type" name="name">
+  <input type="text" class="form-control" id="role" placeholder="role" [(ngModel)]="user.role" name="role">
 
   <label for="password">Password</label>
   <input type="password" class="form-control" id="password" placeholder="password" [(ngModel)]="user.password" name="password">

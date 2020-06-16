@@ -6,6 +6,8 @@ import {SearchComponent} from "./search/search.component";
 import { ViewChild } from '@angular/core'
 import {Product} from './models/product.model';
 import {EcommerceService} from './services/EcommerceService';
+import { TokenStorageService } from './services/token-storage.service';
+
 
 
 @Component({
@@ -33,7 +35,8 @@ export class EcommerceComponent implements OnInit {
 	name: String;
     products: Product[];
 
-  constructor(private ecommerceService: EcommerceService) { }
+  constructor(private ecommerceService: EcommerceService,
+  private tokenStorageService: TokenStorageService) { }
   
   private searchGames(){
 	  this.ecommerceService.getProductsByName(this.name)
@@ -57,5 +60,10 @@ export class EcommerceComponent implements OnInit {
 	finishOrder(orderFinished: boolean) {
         this.orderFinished = orderFinished;
     }
+	
+	logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
 
 }
